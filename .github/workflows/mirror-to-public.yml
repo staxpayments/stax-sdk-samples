@@ -52,7 +52,7 @@ permissions:
 
 jobs:
   mirror:
-    runs-on: ubuntu-latest
+    runs-on: ${{ format(vars.DEFAULT_RUNNER || 'ubuntu-latest', github.run_id, github.run_attempt) }}
     steps:
       - uses: actions/checkout@v4
         with:
